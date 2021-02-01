@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="videoModel"
+            type="com.bg.itunesvideo.data.model.objects.VideoObj" />
+
+        <variable
+            name="videoUtils"
+            type="com.bg.itunesvideo.data.utils.VideoUtils" />
+
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background_color">
+
+       <!-- app:imageUrl="@{musicModel.image.get(0).text}"-->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200dp"
+            android:alpha="9"
+            android:scaleType="fitXY"
+            app:imageUrl="@{videoModel.artworkUrl100}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+       <!-- app:imageUrl="@{musicModel.image.get(2).label}"-->
+        <TextView
+            android:id="@+id/song_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="@string/video_name"
+            android:text="@{`Track  : ` + videoModel.trackName}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/app_field_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/imageView2"
+            app:layout_constraintTop_toTopOf="@id/imageView2" />
+
+        <TextView
+            android:id="@+id/song_desc_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:hint="@string/video_description"
+            android:text="@{`Artist : ` + videoModel.artistName}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColorHint="@color/app_field_color"
+
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/song_name_textview" />
+
+
+        <TextView
+            android:id="@+id/song_price_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="316dp"
+            android:layout_marginTop="252dp"
+            android:fontFamily="sans-serif"
+            android:hint="@string/price_5_81"
+            android:text="@{`Price : ` +String.valueOf(videoModel.trackPrice)}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/app_field_color"
+            app:layout_constraintStart_toStartOf="@id/imageView2"
+            app:layout_constraintTop_toTopOf="@id/imageView2" />
+
+
+        <!-- app:srcCompat="@drawable/ic_play"-->
+
+
+        <TextView
+            android:id="@+id/primary_gener_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:ellipsize="marquee"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="@string/genre"
+            android:text="@{`Genre : ` +videoModel.primaryGenreName}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/text_size_16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/now_playing"
+
+            android:textColor="@color/white"
+            android:textColorHint="@color/app_field_color"
+            android:textSize="18sp"
+            android:textStyle="italic|bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/white"
+            android:textColorHint="@color/app_field_color"
+            android:hint="@string/song_duration"
+            android:text="@{`Duration : ` +videoUtils.getSongDuration(videoModel.trackTimeMillis)}"
+            android:fontFamily="sans-serif-condensed-light"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/song_desc_textview" />
+<!--        android:text="@{imusicUtils.getSongDuration(musicModel.link.get(1).attributes.href)}"-->
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{`Release Date : ` +videoUtils.getDayName(videoModel.releaseDate)}"
+            android:hint="@string/release_date"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textColorHint="@color/app_field_color"
+            android:fontFamily="sans-serif-condensed-light"
+            app:layout_constraintBottom_toTopOf="@+id/primary_gener_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_324dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/song_price_textview"
+            app:layout_constraintVertical_bias="0.061" />
+
+        <!-- android:text="@{imusicUtils.getDayName(musicModel.releaseDate.label)}"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

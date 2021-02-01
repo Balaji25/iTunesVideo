@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.bg.itunesvideo.data.view.home.VideoListFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_video_details"
+            app:destination="@id/video_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.bg.itunesvideo.data.view.videoHistory.HistoryFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_video_history" />
+
+
+    <fragment
+        android:id="@+id/video_details"
+        android:name="com.bg.itunesvideo.data.view.VideoDetailsFragment"
+        android:label="@string/title_video_details"
+        tools:layout="@layout/fragment_video_details" >
+        <action
+            android:id="@+id/action_video_details_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+  <!--  <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.bg.itunesvideo.data.view.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />-->
+</navigation>

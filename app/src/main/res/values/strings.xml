@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">iTunesVideo</string>
+    <string name="title_home">Video</string>
+    <string name="title_dashboard">History</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_video_details">Video Details</string>
+    <string name="video_name">Video Name</string>
+    <string name="video_description">Video Description</string>
+    <string name="str_playlist">Video Song List</string>
+    <string name="price_5_81">track_price</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="song_duration">Song Duration</string>
+    <string name="release_date">Release Date</string>
+    <string name="genre">Genre Name</string>
+    <string name="str_recentlty_visited">Recently Visited</string>
+    <string name="generic_error_message">Check network connection or try Swipe to refresh</string>
+</resources>
